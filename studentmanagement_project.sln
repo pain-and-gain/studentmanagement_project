@@ -15,6 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Business Layer", "2. Bus
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Data Layer", "3. Data Layer", "{80B632AE-33BF-4B7D-BEAA-19DDFB5C1DD5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Layer", "Business Layer", "{DD7548E3-F310-42AC-96DF-E3ECB4A47EC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Layer", "Data Layer", "{AA0528BA-622C-450B-AB1B-ABD5ECDCAA9E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation Layer", "Presentation Layer", "{9CC374D5-825C-4DB6-8B6B-AFD7E381ACDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,9 +44,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F4422FCE-8EEA-4802-96E7-02FF10A56787} = {80B632AE-33BF-4B7D-BEAA-19DDFB5C1DD5}
-		{6E8B0E74-ED82-4590-886A-D74A1E0B981E} = {BD90338A-6922-4A9A-98B6-1F149CC9A67A}
-		{112DC139-089D-46E2-A2B9-45BA2AE88C07} = {E7488641-DD07-4A25-AE39-F4DB209EB239}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F3F499F-79E0-4756-A836-7132D7CAFA7C}
