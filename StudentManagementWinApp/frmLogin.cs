@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessObject.Object;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,5 +18,44 @@ namespace StudentManagementWinApp
             InitializeComponent();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(string));
+            table.Columns.Add("Role", typeof(string));
+            table.Columns.Add("Name", typeof(string));
+            using var contex = new studentmanagementContext();
+            foreach (var item in contex.Accounts.ToList())
+            {
+                table.Rows.Add(item.UserId, item.Role, item.Name);
+            }
+            dataGridView1.DataSource = table;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Account acc = new Account
+            {
+                UserId = "123",
+                Name = "quyen",
+                Role = "11",
+            };
+            try
+            {
+                using var contex = new studentmanagementContext();
+                contex.Accounts.Update(acc);
+                contex.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dataGridView1.SelectedRows[0]
+        }
     }
 }
