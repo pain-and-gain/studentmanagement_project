@@ -2,7 +2,7 @@
 
 namespace DataAccess
 {
-    public class Class1
+    public class StudentDAO
     {
     }
 }
