@@ -48,14 +48,13 @@ namespace StudentManagementWinApp
             try
             {
                 using var contex = new studentmanagementContext();
-                contex.Accounts.Update(acc);
+                contex.Accounts.Add(acc);
                 contex.SaveChanges();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            dataGridView1.SelectedRows[0]
         }
     }
 }
