@@ -14,6 +14,7 @@ namespace BusinessObject.Object
         public double? Test45Min { get; set; }
         public double? FinalTest { get; set; }
         public double? Average { get; set; }
+        public int? Semester { get; set; }
 
         public virtual Student Student { get; set; }
         public virtual Subject Subject { get; set; }
