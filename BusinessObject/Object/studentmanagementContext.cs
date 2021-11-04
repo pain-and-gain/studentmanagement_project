@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BusinessObject.Object
 {
-    public partial class studentmanagementContext : DbContext
+    public partial class StudentManagementContext : DbContext
     {
-        public studentmanagementContext()
+        public StudentManagementContext()
         {
         }
 
-        public studentmanagementContext(DbContextOptions<studentmanagementContext> options)
+        public StudentManagementContext(DbContextOptions<StudentManagementContext> options)
             : base(options)
         {
         }
@@ -29,7 +29,7 @@ namespace BusinessObject.Object
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("server=(local);uid=sa;pwd=123456;database=studentmanagement");
+                optionsBuilder.UseSqlServer("Server=(local);uid=sa;pwd=123456;database=StudentManagement");
             }
         }
 
@@ -40,7 +40,7 @@ namespace BusinessObject.Object
             modelBuilder.Entity<AcademicTranscript>(entity =>
             {
                 entity.HasKey(e => e.TranscriptId)
-                    .HasName("PK__Academic__DF577D863E96E56F");
+                    .HasName("PK__Academic__DF577D86A7F35CFE");
 
                 entity.Property(e => e.TranscriptId)
                     .HasMaxLength(100)
@@ -50,6 +50,8 @@ namespace BusinessObject.Object
                 entity.Property(e => e.Average).HasColumnName("average");
 
                 entity.Property(e => e.FinalTest).HasColumnName("finalTest");
+
+                entity.Property(e => e.Semester).HasColumnName("semester");
 
                 entity.Property(e => e.StudentId)
                     .HasMaxLength(100)
@@ -68,18 +70,18 @@ namespace BusinessObject.Object
                 entity.HasOne(d => d.Student)
                     .WithMany(p => p.AcademicTranscripts)
                     .HasForeignKey(d => d.StudentId)
-                    .HasConstraintName("FK__AcademicT__stude__59FA5E80");
+                    .HasConstraintName("FK__AcademicT__stude__2E1BDC42");
 
                 entity.HasOne(d => d.Subject)
                     .WithMany(p => p.AcademicTranscripts)
                     .HasForeignKey(d => d.SubjectId)
-                    .HasConstraintName("FK__AcademicT__subje__5AEE82B9");
+                    .HasConstraintName("FK__AcademicT__subje__2F10007B");
             });
 
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__Accounts__CB9A1CDF152CCCF7");
+                    .HasName("PK__Accounts__CB9A1CDFDD85E079");
 
                 entity.Property(e => e.UserId)
                     .HasMaxLength(30)
@@ -125,17 +127,17 @@ namespace BusinessObject.Object
                 entity.HasOne(d => d.SchoolYearNavigation)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.SchoolYear)
-                    .HasConstraintName("FK__Classes__schoolY__38996AB5");
+                    .HasConstraintName("FK__Classes__schoolY__30F848ED");
 
                 entity.HasOne(d => d.Student)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.StudentId)
-                    .HasConstraintName("FK__Classes__schoolY__36B12243");
+                    .HasConstraintName("FK__Classes__student__300424B4");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__Classes__userID__37A5467C");
+                    .HasConstraintName("FK__Classes__userID__31EC6D26");
             });
 
             modelBuilder.Entity<SchoolYear>(entity =>
